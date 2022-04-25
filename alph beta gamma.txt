@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+class alpha
+{
+	protected:
+		int x;
+		public:
+			void getx()
+			{
+				cout<<"enter the value of x"<<endl;
+				cin>>x;
+			}
+			void display()
+			{
+				cout<<"alpha="<<x<<endl;
+			}
+};
+class beta
+{
+	protected:
+		int y;
+		public:
+			void gety()
+			{
+				cout<<"enter the value of y"<<endl;
+				cin>>y;
+			}
+			void display()
+			{
+				cout<<"beta="<<y<<endl;
+			}
+};	
+class gamma:public alpha,public beta
+{
+int z;
+		public:
+			void getz()
+			{
+				cout<<"enter the value of z"<<endl;
+				cin>>z;
+			}
+			void display()
+			{
+				cout<<"gamma="<<z<<endl;
+			}
+};
+int main()
+{
+	gamma g;
+	g.getx();
+	g.gety();
+	g.alpha::display();
+	g.beta::display();
+	g.display();
+return 0;
+}

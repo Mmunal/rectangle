@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+class student
+{
+	protected:
+		char name[50];
+		int roll;
+		public:
+			void getdata()
+			{
+				cout<<"enter the name and roll of student:"<<endl;
+				cin>>name>>roll;
+			}
+			void display()
+			{
+				cout<<"name="<<name<<endl;
+				cout<<"roll="<<roll<<endl;
+			}
+};
+class test:public student
+{
+	protected:
+		float sub1,sub2;
+		public:
+			void getmarks()
+			{
+				cout<<"enter the marks obtained by student in two subjects:"<<endl;
+				cin>>sub1>>sub2;
+			}
+			void display()
+			{
+				cout<<"the marks obtained in first subject:"<<sub1<<endl;
+				cout<<"the marks obtained in second subject:"<<sub2<<endl;
+}
+};	
+class result:public test
+{
+float total;
+		public:
+			void display()
+			{
+				total=sub1+sub2;
+				cout<<"total marks obtained:"<<total<<endl;
+}
+};
+int main()
+{
+	result r;
+	r.student::getdata();
+	r.test::getmarks();
+	r.student::display();
+	r.test::display();
+	r.display();
+	return 0;
+}

@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+class shape
+{
+	protected:
+		float width, height;
+		public:
+			shape(float w,float h)
+			{
+				width=w;
+				height=h;
+			}
+};
+class rectangle:public shape
+{
+	public:
+		rectangle(float w,float h):shape(w,h)
+		{
+		}
+		float calculateArea()
+		{
+			return(width*height);
+		}
+	
+};
+	int main()
+	{
+		float width,height;
+		cout<<"enter the width and height of rectangle"<<endl;
+		cin>>width>>height;
+		rectangle r(width,height);
+		cout<<"the area of a rectangle is:"<<r.calculateArea()<<endl;			
+		return 0;
+	}
