@@ -1,0 +1,61 @@
+#include<iostream>
+using namespace std;
+class media
+{
+	protected:
+		char title[50];
+		float price;
+		public:
+			void get()
+			{
+				cout<<"enter title of media:"<<endl;
+				cin>>title;
+				cout<<"enter price of media:"<<endl;
+				cin>>price;
+			}
+			void display()
+			{
+				cout<<"the title of media is:"<<title<<endl;
+				cout<<"the price of media is:"<<price<<endl;
+			}
+		};
+		class book:public media
+		{
+			int no;
+			public:
+				void get()
+				{
+					cout<<"enter the no of pages:"<<endl;
+					cin>>no;
+				}
+				void display()
+				{
+					cout<<"the number of pages is:"<<no<<endl;
+				}
+		};
+		class videotape:public media
+		{
+		int playtime;
+		public:
+			void get()
+			{
+				cout<<"enter playtime:"<<endl;
+				cin>>playtime;
+			}
+			void display()
+			{
+				cout<<"playtime of video tape is:"<<playtime<<endl;
+			}
+		};
+		int main()
+		{
+			book b;
+			videotape t;
+			b.media::get();
+			b.get();
+			t.get();
+			b.media::display();
+			b.display();
+			t.display();				
+			return 0;			
+}

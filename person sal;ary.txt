@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+class person
+{
+	protected:
+		char name[50];
+		int code;
+		public:
+			void get()
+			{
+				cout<<"enter the name and code"<<endl;
+				cin>>name>>code;
+			}
+			void display()
+			{
+				cout<<"Name="<<name<<endl;
+				cout<<"code="<<code<<endl;
+			}
+		};
+		class account:public virtual person
+		{
+			protected:
+			float salary;
+			public:
+				void get()
+				{
+					cout<<"enter salary"<<endl;
+					cin>>salary;
+				}
+				void display()
+				{
+					cout<<"salary=:"<<salary<<endl;
+				}
+		};
+		class admin:public virtual person
+		{
+			protected:
+			int n;
+			public:
+				void get()
+				{
+					cout<<"enter the number of years of experience"<<endl;
+					cin>>n;
+				}
+				void display()
+				{
+					cout<<"number of years of experience:"<<n<<endl;
+				}
+		};
+		class record:public virtual account,public virtual admin
+		{
+			int record;
+			public:
+				void get()
+				{
+				cout<<"enter the record number"<<endl;
+				cin>>record;
+				}
+				void display()
+				{
+					cout<<"the record number is:"<<record<<endl;
+				}
+		};
+		int main()
+		{
+			record r;
+			r.person::get();
+			r.account::get();
+			r.admin::get();
+			r.get();
+			r.person::display();
+			r.account::display();
+			r.admin::display();
+			r.display();
+			return 0;
+		}

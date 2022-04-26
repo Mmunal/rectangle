@@ -1,0 +1,74 @@
+#include<iostream>
+using namespace std;
+class student
+{
+	protected:
+		char name[50];
+		int roll;
+		public:
+			void get()
+			{
+				cout<<"enter the name and roll"<<endl;
+				cin>>name>>roll;
+			}
+			void display()
+			{
+				cout<<"Name="<<name<<endl;
+				cout<<"Roll="<<roll<<endl;
+			}
+		};
+		class test:public student
+		{
+			protected:
+			int sub1,sub2;
+			public:
+				void get()
+				{
+					cout<<"enter the marks in sub1"<<endl;
+					cin>>sub1;
+					cout<<"enter the marks in sub2"<<endl;
+					cin>>sub2;
+				}
+				void display()
+				{
+					cout<<"the mark in sub1 is:"<<sub1<<endl;
+					cout<<"the mark in sub2 is:"<<sub2<<endl;
+				}
+		};
+		class sports
+		{
+			protected:
+			float score;
+			public:
+				void get()
+				{
+					cout<<"enter the score"<<endl;
+					cin>>score;
+				}
+				void display()
+				{
+					cout<<"the score is:"<<endl;
+				}
+		};
+		class result:public test,public sports
+		{
+			float total;
+			public:
+				void display()
+				{
+					total=sub1+sub2+score;
+					cout<<"Total is:"<<total<<endl;
+				}
+		};
+		int main()
+		{
+			result r;
+			r.student::get();
+			r.test::get();
+			r.sports::get();
+			r.student::display();
+			r.test::display();
+			r.sports::display();
+			r.display();
+			return 0;
+		}
